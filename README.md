@@ -1,5 +1,5 @@
 ## Middleware
 
-happi
+hapi
 
 express
