@@ -23,5 +23,15 @@ Node has an efficient scaling model, and a vibrant, healthy community. Hapi has 
 
 **Configuration-Driven Features:**
 
-hapi ethos is configuration-over-code, meaning that there aren't a lot of methods to remember to perform commonly required tasks, such as managing file uploads to a server. Instead complex behaviors are
+hapi ethos is configuration-over-code, meaning that there aren't a lot of methods to remember to perform commonly required tasks, such as managing file uploads to a server. Instead complex behaviors are wrapped into simple configuration-driven APIs.
+
+Implementing Hapi reduces boilerplate code. It's open source. **It's battle tested**. Used by large companies such PayPal, Yahoo, Mozilla, Disney.
+
+##1.1.2 What kind of framework is hapijs?
+
+*Opinionated frameworks* reduce the number of decisions required of you by making the decisions for you up front and then providing useful behavior without writing much code, think of Ruby Rails. With *Opinionated frameworks* you trade convenience for flexibility. Opinionated frameworks are rigid, and often monolithic, offering a lot of features in one single library. The software dictates your configuration. While hapi is less imposing but does have many features out of the box. **The code
+
+
+
+
 
