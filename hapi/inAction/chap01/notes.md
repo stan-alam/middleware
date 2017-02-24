@@ -61,7 +61,7 @@ const options = {
 	name: 'spam',
 	color: 'mixed',
 	speckles: 'true',
-	humanReactopm: 'yuck!'
+	humanReaction: 'yuck!'
 };
 
 ```
@@ -97,35 +97,37 @@ GET /resources/{app-id} > handler: function() {....}
     Routes tell hapi that you're using certain type of requests. Routes are created with a set of
     actions/options, including the HTTP verb that is the actions/options along with the path. e.g
     /about
-     When a request arrives at the hapi server, hapi will attempt to find a route that matches
-     the request. When it successfully pairs the request with a route, it will call the handler
-     to process(or handle) the request.
+    When a request arrives at the hapi server, hapi will attempt to find a route that matches
+    the request. When it successfully pairs the request with a route, it will call the handler
+    to process(or handle) the request.
 
-     Handlers:
-     Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to
-     respond to the HTTP request. A handler can take several forms. THe most flexible is defined
-     as a JavaScript function with access to a request object and a reply interface. One way is to
-     examine the request object to get details about the request (content-type within JSON object)
-     (or operation within the JSON object)You can use the reply interface to respond to the request
-     in which ever manner to your discretion. e.g. you might respond with an image file or JSON
-     response to an API request.
-     	Using hapi plugins, you can add new handler types with behavior pre-programmed, so you will
-     not need any code to use them. e.g. the directory handler from the Inert plugin:
-	 https://www.npmjs.com/package/inert
-	 By using this directory handler, the dev can serve static files from a directory without needing
-	 to write any code.
+    Handlers:
+    Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to
+    respond to the HTTP request. A handler can take several forms. THe most flexible is defined
+    as a JavaScript function with access to a request object and a reply interface. One way is to
+    examine the request object to get details about the request (content-type within JSON object)
+    (or operation within the JSON object)You can use the reply interface to respond to the request
+    in which ever manner to your discretion. e.g. you might respond with an image file or JSON
+    response to an API request.
+    	Using hapi plugins, you can add new handler types with behavior pre-programmed, so you will
+    not need any code to use them. e.g. the directory handler from the Inert plugin:
+	https://www.npmjs.com/package/inert
+	By using this directory handler, the dev can serve static files from a directory without needing
+	to write any code.
 
-     Plugins:
-     Plugins are for extending servers with new functionality. e.g extending the server with a global
-     utility, such as logging all requests or adding caching to responses. plugins are available as
-     npm packages that deal with things like authentication and logging. - written by hapi devs.
-     devs can create their own plugins that can divide the application into smaller logical chunks
-     that are easier to maintain or even replace like interchangeable parts.
-
-
+    Plugins:
+    Plugins are for extending servers with new functionality. e.g extending the server with a global
+    utility, such as logging all requests or adding caching to responses. plugins are available as
+    npm packages that deal with things like authentication and logging. - written by hapi devs.
+    devs can create their own plugins that can divide the application into smaller logical chunks
+    that are easier to maintain or even replace like interchangeable parts.
 
 
-
+client makes          Request sent                   hapi finds                 handler for
+   request               to server                   matching route              routes executed
+-------------> { NIC } -------------> { hapi server } ---------------> { route } -----> { Handler }
+<--------------   ^																              |
+                  |___________________________________________________________________________|
 
 
 
