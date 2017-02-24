@@ -194,9 +194,11 @@ hapi works with several HTML-templating languages like **Handlebars** and **Jade
 
 **Single-Page-Apps**
 
-Devs can us
+Devs can use hapi with React and other front-end frameworks, like backbone, angularJS, etc.SPAs are usually created from modular page components. hapi can easily serve chunks of HTML or JSON as a response to AJAX requests by user actions in the app.
 
 
+
+**Proxies** hapi is a good choice for building proxies and reverse proxies. e.g. using a proxy to handle HTTP reguests from mobile to legacy java server apps. The devs can switch out the legacy apps transparently at the end of the lifecycle for that app.
 
 
 
