@@ -1,0 +1,9 @@
+{
+	"name": "spellBook",
+	"version": "1.0.0",
+	"description": "A social network for witch doctors",
+	"main" : "index.js",
+	"author": "Abaris the Hyperborean",
+	"private": true,
+	"license": "none"
+}
