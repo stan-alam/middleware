@@ -123,13 +123,37 @@ GET /resources/{app-id} > handler: function() {....}
     that are easier to maintain or even replace like interchangeable parts.
 
 
-client makes          Request sent                   hapi finds                 handler for
-   request               to server                   matching route              routes executed
--------------> { NIC } -------------> { hapi server } ---------------> { route } -----> { Handler }
-<--------------   ^																              |
-                  |___________________________________________________________________________|
+## example of a hapi app that uses all the building blocks
 
+```Javascript
 
+'use strict';
+
+const Hapi = require('hapi');
+
+const server = new Hapi.Server();
+server.connection({ port: 3000 });
+
+server.rout({
+	method: 'GET',
+	path: '/amerikanski',
+	handler: function (request, reply) {
+
+		reply("Hola, Multiverso!");
+	}
+});
+
+const plugin = function ( server, options, next ) {
+
+	server.route({
+		method: 'GET',
+		path: '/kanadisch',
+		handler: function (request, reply) {
+
+			reply("Hallo, Multiversum!")
+			}
+		})
+}
 
 
 
