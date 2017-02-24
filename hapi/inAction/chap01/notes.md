@@ -104,7 +104,29 @@ GET /resources/{app-id} > handler: function() {....}
      Handlers:
      Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to
      respond to the HTTP request. A handler can take several forms. THe most flexible is defined
-     as a javascript function with access to a request object and a reply interface.
+     as a JavaScript function with access to a request object and a reply interface. One way is to
+     examine the request object to get details about the request (content-type within JSON object)
+     (or operation within the JSON object)You can use the reply interface to respond to the request
+     in which ever manner to your discretion. e.g. you might respond with an image file or JSON
+     response to an API request.
+     	Using hapi plugins, you can add new handler types with behavior pre-programmed, so you will
+     not need any code to use them. e.g. the directory handler from the Inert plugin:
+	 https://www.npmjs.com/package/inert
+	 By using this directory handler, the dev can serve static files from a directory without needing
+	 to write any code.
+
+     Plugins:
+     Plugins are for extending servers with new functionality. e.g extending the server with a global
+     utility, such as logging all requests or adding caching to responses. plugins are available as
+     npm packages that deal with things like authentication and logging. - written by hapi devs.
+     devs can create their own plugins that can divide the application into smaller logical chunks
+     that are easier to maintain or even replace like interchangeable parts.
+
+
+
+
+
+
 
 
 
