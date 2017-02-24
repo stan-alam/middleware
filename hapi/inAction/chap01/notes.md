@@ -48,6 +48,7 @@ bean.setColor('brown');
 bean.setSpeckles('true');
 bean.setHumanReaction('yum!');
 
+
 ```
 
 This code is "verbose" --five methods calls on the *bean* object to create the jellybean.
@@ -80,10 +81,28 @@ DELETE /resources/{application-id}
 4. Handlers: Describe how a matched route should be processed
 POST /resources > handler: function() {....}
 GET /resources/{app-id} > handler: function() {....}
-5, Plugins: Extend the server with new functionality
+5. Plugins: Extend the server with new functionality
 
-  * Servers:
-  Everything begins with a *server*, the container for the hapi *application*. Every other object i.e connections, routes, handlers, plugins are created or used in the context of the *server*.
+#
+    Servers:
+    Everything begins with a server, the container for the hapi application. Every other object
+    i.e connections, routes, handlers, plugins are created or used in the context of the server.
+
+    Connections:
+    Connections are used for the attaching a nic to the server, so the server can start accepting
+    incoming requests. By using connections, you can have a single hapi server listen on multiple
+    ports, this can be useful for applications using TLS.
+
+    Routes:
+    Routes tell hapi that you're using certain type of requests. Routes are created with a set of
+    actions/options, including the HTTP verb that is the actions/options along with the path. e.g
+    /about
+     When a request arrives at the hapi server, hapi will attempt to find a route that matches the request. When it successfully pairs the request with a route, it will call the handler to process(or handle) the request.
+
+     Handlers:
+     Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to respond to the HTTP request. A handler can take several forms. THe most flexible is defined as a javascript function with access to a request object and a reply interface.
+
+
 
 
 
