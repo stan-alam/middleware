@@ -131,29 +131,53 @@ GET /resources/{app-id} > handler: function() {....}
 
 const Hapi = require('hapi');
 
-const server = new Hapi.Server();
+const server = new Hapi.Server();                //create a server
 server.connection({ port: 3000 });
 
-server.rout({
-	method: 'GET',
+server.route({                                   //create the route that responds
+	method: 'GET',                               //to GET requests to/amerikanski
 	path: '/amerikanski',
 	handler: function (request, reply) {
 
-		reply("Hola, Multiverso!");
+		reply("Hola, Multiverso!");               //define a handler for the route
 	}
 });
 
-const plugin = function ( server, options, next ) {
-
+const plugin = function ( server, options, next ) {  // start of defining the plugin, which internally
+                                                     //creates routes
 	server.route({
 		method: 'GET',
-		path: '/kanadisch',
+		path: '/kanadisch',l
 		handler: function (request, reply) {
 
-			reply("Hallo, Multiversum!")
+			reply("Hallo, Multiversum!");
 			}
-		})
-}
+		});
+
+		next();
+
+};
+
+plugin.attributes = {
+	name: 'My plugin'
+};
+
+server.register(plugin, (err) => {    //start server
+
+	if (err) {
+		throw err;
+	}
+
+	server.start((err) => {
+		if (err) {
+			throw err;
+		}
+		console.log("Server is running at: ', server.info.uri");
+	});
+
+});
+
+```
 
 
 
