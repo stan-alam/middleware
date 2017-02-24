@@ -181,6 +181,20 @@ server.register(plugin, (err) => {    //start server
 
 
 
+##Great uses for hapi
+
+**use hapi for:**
+
+**JSON APIs**: JSON APIs are the classic use for hapi. hapi has an extensive feature set that includes routing, input and output validation
+authentication, caching, and automatic documentation. Devs can build APIs that serve all kinds of clients, such as mobile apps, SPAs,..etc
+
+**Static or Database-driven Websites**
+
+hapi works with several HTML-templating languages like **Handlebars** and **Jade** so devs can create HTML docs from dynamic data. hapi makes it simple to deploy apps with cookie-based authentication and sessions to maintain state between page requests.
+
+**Single-Page-Apps**
+
+Devs can us
 
 
 
