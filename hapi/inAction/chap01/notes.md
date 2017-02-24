@@ -74,14 +74,14 @@ Key components in hapi of which underpin every single hapi app.
 
 servers, connections, routes, handlers, and plugins.
 
-1. The server is the root of all hapi applications
-2. Routes: specifiy the types of requests, e.g. POST /resources, GET /resources/{application-id}
+1. **The server is the root of all hapi applications**
+2. **Routes: specifiy the types of requests**, e.g. POST /resources, GET /resources/{application-id}
 DELETE /resources/{application-id}
-3. Server connections: Link the server with the nic(network card interface)
-4. Handlers: Describe how a matched route should be processed
+3. **Server connections: Link the server with the nic**(network card interface)
+4. **Handlers: Describe how a matched route should be processed**
 POST /resources > handler: function() {....}
 GET /resources/{app-id} > handler: function() {....}
-5. Plugins: Extend the server with new functionality
+5. **Plugins: Extend the server with new functionality**
 
 #
     Servers:
@@ -97,10 +97,14 @@ GET /resources/{app-id} > handler: function() {....}
     Routes tell hapi that you're using certain type of requests. Routes are created with a set of
     actions/options, including the HTTP verb that is the actions/options along with the path. e.g
     /about
-     When a request arrives at the hapi server, hapi will attempt to find a route that matches the request. When it successfully pairs the request with a route, it will call the handler to process(or handle) the request.
+     When a request arrives at the hapi server, hapi will attempt to find a route that matches
+     the request. When it successfully pairs the request with a route, it will call the handler
+     to process(or handle) the request.
 
      Handlers:
-     Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to respond to the HTTP request. A handler can take several forms. THe most flexible is defined as a javascript function with access to a request object and a reply interface.
+     Every time you create a route, you will specify a handler. A Handler tells hapi(server)how to
+     respond to the HTTP request. A handler can take several forms. THe most flexible is defined
+     as a javascript function with access to a request object and a reply interface.
 
 
 
