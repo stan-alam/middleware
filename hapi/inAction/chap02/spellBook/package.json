@@ -1,9 +1,12 @@
 {
-	"name": "spellBook",
-	"version": "1.0.0",
-	"description": "A social network for witch doctors",
-	"main" : "index.js",
-	"author": "Abaris the Hyperborean",
-	"private": true,
-	"license": "none"
+  "name": "spellBook",
+  "version": "1.0.0",
+  "description": "A social network for witch doctors",
+  "main": "index.js",
+  "author": "Abaris the Hyperborean",
+  "private": true,
+  "license": "none",
+  "dependencies": {
+    "hapi": "^13.5.3"
+  }
 }
