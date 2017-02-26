@@ -110,7 +110,83 @@ db.all('select * from spells', (err, results) => {
 });
 
 ```
+**To prevent SQL injection, use placeholders to safely include variables in SQL query**
 
 
+#2.3 Retrieving and search spells
 
+Implement two endpoints as discussed. An endpoint for searching spells and retrieving all spells. And another endpoint for retrieving a single spell.
+To create this endpoint in hapi, you will need to define a route using the **server.route()** method. hapi matches requests with a route and then runs a handler associated with the route.
 
+##2.3.1 Introducing server.route()
+
+The **server.route()** method can take either an *object* to create a single route or an **array of objects** to create multiple routes.
+
+refer to the hapi API, server.route(options) (http://hapijs.com/api#serverrouteoptions)
+
+The *options* object passed to **server.route()** is a **configuration object**, which is list of the various bits of information that hapi needs to know to set up the route.
+
+GET      /api/spells
+{method}  {path}
+
+```Javascript
+
+server.route({
+  method: 'GET',
+  path: 'api/spells',
+  handler: function(request, reply) {
+     ...
+  }
+});
+
+```
+
+POST      /api/spells/1/pentagram
+{method}  {path}
+
+```Javascript
+
+server.route([{
+  method: 'POST',
+  path: 'api/spells/{id}/pentagram',
+  handler: function(request, reply) {
+     ...
+  }
+}]);           //notice this is an array
+
+```
+
+**There are three required options:** *method, path, handler*, you'll need for every route you create. Other options can be available are specific to one feature of hapi this includes documentation, validation, or authentication.
+
+<table class="tg">
+  <tr>
+    <th class="tg-031e">option</th>
+    <th class="tg-031e">type</th>
+    <th class="tg-031e">purpose</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">method</td>
+    <td class="tg-031e">string/array</td>
+    <td class="tg-031e">http verb(s) to match</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">path</td>
+    <td class="tg-031e">string</td>
+    <td class="tg-031e">URI path to match</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">handler</td>
+    <td class="tg-yw4l"> function/object</td>
+    <td class="tg-yw4l">defines what should happen for a matching route; e.g.<br>how to build a response</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">config</td>
+    <td class="tg-yw4l">object</td>
+    <td class="tg-yw4l">Further optional configuration for the route</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">config.auth</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">Authentication strategy to use on matched request(s)</td>
+  </tr>
+</table>
