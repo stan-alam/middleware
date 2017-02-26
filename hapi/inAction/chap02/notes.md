@@ -81,3 +81,36 @@ The spellBook API will be modeled around two database tables: spells and users
     <td class="tg-031e">password VARCHAR(255)</td>
   </tr>
 </table>
+
+## Creating a connection to SQLite using sqlite3
+
+```Javascript
+
+const Sqlite3 = require('sqlite3');
+const db = new Sqlite3.Database('./spellBook.sqlite');    // Pass the database filename to the constructor
+
+```
+
+The db.all() method is used for fetching multiple records and accepts two arguments: the SQL query that you will use, will be type of string and a callback with two arguments: an error (**or null if no error occurred**) and an array of found records will be returned. **In node returning an error as the first parameter is a best practice**.
+
+## Querying a database for all spells and printing each spell's name
+
+```Javascript
+
+db.all('select * from spells', (err, results) => {
+
+  if (err) {
+    throw err;
+  }
+
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i].name);    // loop through each result and log name of spell
+  }
+
+});
+
+```
+
+
+
+
