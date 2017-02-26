@@ -65,3 +65,19 @@ The spellBook API will be modeled around two database tables: spells and users
   </tr>
 </table>
 
+
+
+<table class="tg">
+  <tr>
+    <th class="tg-031e">users</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">id INT</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">username VARCHAR(255)</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">password VARCHAR(255)</td>
+  </tr>
+</table>
